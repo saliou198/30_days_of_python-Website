@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import { appearanceInitScript, DEFAULT_STYLE, DEFAULT_THEME } from "@/lib/appearance";
 
@@ -46,7 +47,10 @@ export function Document({
       <head>
         <script dangerouslySetInnerHTML={{ __html: appearanceInitScript }} />
       </head>
-      <body className="flex min-h-full flex-col font-sans">{children}</body>
+      <body className="flex min-h-full flex-col font-sans">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
